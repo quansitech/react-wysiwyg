@@ -6,8 +6,8 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
-    "lib/*.js",
-    "es/*.js"
+    "lib/*",
+    "es/*"
   ],
   "devDependencies": {
     "@babel/cli": "^7.8.4",
