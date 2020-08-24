@@ -13,7 +13,11 @@ npm i @quansitech/react-wysiwyg
 
 全局设置
 ```js
-import WYSIWYG from './index';
+import WYSIWYG from '@quansitech/react-wysiwyg';
+import 'antd/lib/upload/style/index.css';
+import 'antd/lib/input/style/index.css';
+import 'antd/lib/popover/style/index.css';
+import '@quansitech/react-wysiwyg/lib/index.css';
 
 const options = {
     className: '', //启动所见即所得功能的元素class，默认render-mg，可改成自己需要的值
