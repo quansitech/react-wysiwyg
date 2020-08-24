@@ -10,7 +10,6 @@
         ]
     ],
     "plugins": [
-        ["@babel/plugin-proposal-class-properties"],
-        ["import", {"libraryName": "antd", "style": "css"}, "antd"]
+        ["@babel/plugin-proposal-class-properties"]
     ]
 }

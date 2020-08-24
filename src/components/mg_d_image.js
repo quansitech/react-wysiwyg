@@ -51,6 +51,7 @@ export default function MgDText(props){
 
     return (
         <Upload
+          className={ 'qs-wg' }
           listType="picture-card"
           showUploadList={false}
           action={props.actionUrl}

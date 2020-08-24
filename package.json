@@ -22,6 +22,8 @@
     "copyfiles": "^2.3.0",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
@@ -31,10 +33,12 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.conf.js",
     "build": "webpack --config webpack.prod.conf.js",
+    "less": "lessc src/index.less lib/index.css",
+    "less-es": "lessc src/index.less es/index.css",
     "copy-lib": "copyfiles -u 1 src/*.css lib",
     "copy-es": "copyfiles -u 1 src/*.css es",
-    "babel": "npx babel src --out-dir lib --ignore \"src/app.js\" --config-file ./babel.config.json && npm run copy-lib",
-    "babel-es": "npx babel src --out-dir es --ignore \"src/app.js\" --config-file ./babel.es.config.json && npm run copy-es"
+    "babel": "npx babel src --out-dir lib --ignore \"src/app.js\" --config-file ./babel.config.json && npm run less ",
+    "babel-es": "npx babel src --out-dir es --ignore \"src/app.js\" --config-file ./babel.es.config.json && npm run less-es"
   },
   "dependencies": {
     "antd": "^4.1.3",

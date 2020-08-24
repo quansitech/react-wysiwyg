@@ -9,5 +9,5 @@ export default function MgDText(props){
         props.change(e.target.value)
     }
 
-    return <Input value={ mgValue } onChange={ handleChange }/>
+    return <Input className={ 'qs-wg' } value={ mgValue } onChange={ handleChange }/>
 }

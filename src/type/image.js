@@ -40,7 +40,7 @@ export default class TypeImage extends Type{
                 <span style={{position: 'absolute',width: '100%',height: '100%',backgroundColor: 'rgba(0,0,0,.6)',left: 0,top: 0}}>
                 </span>
                 <img className={this.ele.className } src={mgValue} />
-                <UploadOutlined style={{ fontSize: this.getFontSize() }} />
+                <UploadOutlined className={'qs-wg'} style={{ fontSize: this.getFontSize() }} />
             </span>
             </MgPopover>
         </ImageContainer>;

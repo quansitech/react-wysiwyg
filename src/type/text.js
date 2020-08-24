@@ -23,6 +23,6 @@ export default class TypeText extends Type{
     render = async (mgValue, handleChange) => {
         let component = await this.loadComponent();
         const Comp = <component.default mgValue={ mgValue } change={ handleChange } ></component.default>;
-        return <MgPopover component={ Comp } ><span><span>{ mgValue }</span><EditOutlined /></span></MgPopover>
+        return <MgPopover component={ Comp } >{ mgValue }<EditOutlined /></MgPopover>
     }
 }

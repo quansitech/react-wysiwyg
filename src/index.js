@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import typeFactory from './type/typeFactory';
-import './index.css';
 
 function MgApp(props){
     const [ mgValue, setMgValue ] = useState(props.mgValue);
