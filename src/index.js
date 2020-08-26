@@ -30,7 +30,13 @@ class WYSIWYG{
         this.init();
     }
 
+    forbiddenClick = () => {
+        var body = document.getElementsByTagName('body')[0];
+        body.style.pointerEvents = 'none';
+    }
+
     init = async () => {
+        this.forbiddenClick();
         let className = this.options.className ? this.options.className : 'render-mg';
         let apps = document.getElementsByClassName(className);
         for(let i=0; i < apps.length; i++){
@@ -38,6 +44,8 @@ class WYSIWYG{
             const comp = element.dataset.component;
             let typeComp = await typeFactory(comp, element, this.options, this.result);
             ReactDOM.render(<MgApp mgValue={ typeComp.getMgValue() } componentMg={ typeComp } />, element);
+
+            element.style.pointerEvents = 'all';
         }
     }
 
