@@ -3,7 +3,7 @@ import React from 'react';
 import ImageContainer from '../components/mg_img_container';
 import MgPopover from '../components/mg_popover';
 import { UploadOutlined } from '@ant-design/icons';
-
+import Util from '../lib/util';
 
 export default class TypeImage extends Type{
 
@@ -39,7 +39,7 @@ export default class TypeImage extends Type{
             <span style={{display: 'inline-block',position: 'relative'}}>
                 <span style={{position: 'absolute',width: '100%',height: '100%',backgroundColor: 'rgba(0,0,0,.6)',left: 0,top: 0}}>
                 </span>
-                <img className={this.ele.className } src={mgValue} />
+                <img className={this.ele.className } style={ Util.cssTextToObject(this.ele.style.cssText) } src={mgValue} />
                 <UploadOutlined className={'qs-wg'} style={{ fontSize: this.getFontSize() }} />
             </span>
             </MgPopover>

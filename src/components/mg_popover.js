@@ -3,7 +3,7 @@ import { Popover } from 'antd';
 
 export default function MgPopover(props){
 
-    return <Popover trigger="click" content={ props.component }>
+    return <Popover style={{ pointerEvents: 'all' }} trigger="click" content={ props.component }>
         {props.children}
     </Popover>
 }

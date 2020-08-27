@@ -6,6 +6,8 @@ function MgApp(props){
     const [ mgValue, setMgValue ] = useState(props.mgValue);
     const [ component, setComponent] = useState(null);
 
+    props.componentMg.ele.style.pointerEvents = 'all';
+    
     useEffect(() => {
         async function render(){
             let comp = await props.componentMg.render(mgValue, handleChange);
@@ -44,9 +46,9 @@ class WYSIWYG{
             const comp = element.dataset.component;
             let typeComp = await typeFactory(comp, element, this.options, this.result);
             ReactDOM.render(<MgApp mgValue={ typeComp.getMgValue() } componentMg={ typeComp } />, element);
-
-            element.style.pointerEvents = 'all';
         }
+
+        
     }
 
     getResult = () => {
