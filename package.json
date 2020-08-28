@@ -2,7 +2,7 @@
   "name": "@quansitech/react-wysiwyg",
   "author": "tiderjian",
   "homepage": "https://github.com/quansitech/react-wysiwyg",
-  "version": "v1.0.7",
+  "version": "v1.0.8",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
