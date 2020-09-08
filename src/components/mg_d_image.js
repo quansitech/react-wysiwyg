@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 
-
-
-export default function MgDText(props){
+export default function MgDImage(props){
     const [ loading, setLoading ] = useState(false);
     const [ mgValue, setMgValue ] = useState(props.mgValue)
 
@@ -42,12 +40,19 @@ export default function MgDText(props){
         return isJpgOrPng && isLt2M;
     }
 
+    const handleClick = e => {
+      console.log('click');
+      e.stopPropagation();
+      e.preventDefault();
+    }
+
     const uploadButton = (
         <div>
           {loading ? <LoadingOutlined /> : <PlusOutlined />}
           <div>Upload</div>
         </div>
       );
+
 
     return (
         <Upload
@@ -57,6 +62,7 @@ export default function MgDText(props){
           action={props.actionUrl}
           beforeUpload={beforeUpload}
           onChange={handleChange}
+          onClick={handleClick}
         >
           {mgValue ? <img src={mgValue} style={{ width: '100%' }} /> : uploadButton}
         </Upload>

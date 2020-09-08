@@ -46,9 +46,11 @@
 用心助力公益</h1>
         </div>
     </div>
+    <div class="render-mg" data-component="backgroundImage" data-key="test1" style="text-align:center;width:100%;height:400px; background-image: url(https://www.quansitech.com/wp-content/uploads/2017/12/20171228133738675.jpg)">
+    </div>
     <div id="home-about" class="wrapper">
         <div class="container">
-            <h1 class="panel-title render-mg" data-component="text" data-scroll-reveal>
+            <h1 class="panel-title render-mg" data-component="text" data-key="hello" data-scroll-reveal>
                 关于我们
             </h1>
             <div class="desc" data-scroll-reveal>我们一直专注于非营利领域，敏锐捕捉行业的需求痛点，以互联网优秀技术助力公益，为公益伙伴创造更大成效。</div>
@@ -88,6 +90,7 @@
             </h1>
             <div class="desc" data-scroll-reveal>我们能帮助公益组织更好地解决信息发布、项目管理、募捐筹款及志愿参与等需求。</div>
             <div class="list" data-scroll-reveal>
+                <div class="render-mg" data-component="refer" data-link="https://www.baidu.com"></div>
                                 <a href="https://www.quansitech.com/service/official-website/" class="item" style="background-image:url(https://www.quansitech.com/wp-content/uploads/2017/11/20171129011942444.jpg)">
                     <div class="content">
                         <h2>机构品牌官网</h2>
@@ -377,28 +380,6 @@
         </div>
     </div>
 </div>
-<script src="https://www.quansitech.com/wp-content/themes/t4t/static/js/scrollReveal.js"></script>
-<script>
-    function headerClass() {
-        var scrollTop = $(document).scrollTop();
-        if(scrollTop > 100){
-            $('#header').addClass('active');
-        }else{
-            $('#header').removeClass('active');
-        }
-    }
-    (function () {
-        if(!$('.contact').length && !$('.single').length){
-            window.scrollReveal = new scrollReveal();
-            $(window).on('scroll',headerClass);
-            headerClass();
-        }
-        else{
-            $('#header').addClass('active');
-        }
-        
-    })();
-</script>
 <script type='text/javascript' src='https://www.quansitech.com/wp-includes/js/wp-embed.min.js?ver=4.9.12'></script>
 <script>
 var _hmt = _hmt || [];
@@ -409,7 +390,9 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 
-new window.QscmfWYSIWYG({});
+new window.QscmfWYSIWYG({
+    imageUploadUrl: 'http://nature.tunnel.t4tstudio.com/api/upload/uploadImage'
+});
 </script>
 </body>
 </html>

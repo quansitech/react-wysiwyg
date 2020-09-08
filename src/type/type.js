@@ -10,7 +10,8 @@ export default class Type{
     }
 
     getReactComponent = async () => {
-        let component = await import(`../components/mg_d_${this.type.toLowerCase()}.js`);
+        let type = this.componentType ? this.componentType : this.type;
+        let component = await import(`../components/mg_d_${type}.js`);
         return component;
     }
 

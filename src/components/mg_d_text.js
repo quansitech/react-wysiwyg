@@ -9,5 +9,10 @@ export default function MgDText(props){
         props.change(e.target.value)
     }
 
-    return <Input className={ 'qs-wg' } value={ mgValue } onChange={ handleChange }/>
+    const handleClick = e => {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    return <Input className={ 'qs-wg' } value={ mgValue } onClick={ handleClick } onChange={ handleChange }/>
 }

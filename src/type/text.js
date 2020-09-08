@@ -16,7 +16,10 @@ export default class TypeText extends Type{
     }
 
     handleChange = (text) => {
-        this.result[this.key] = text;
+        this.result[this.key] = {
+            type: this.type,
+            value: text
+        };
         return text;
     }
 

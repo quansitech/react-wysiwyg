@@ -27,7 +27,10 @@ export default class TypeImage extends Type{
     }
 
     handleChange = (res) => {
-        this.result[this.key] = res.file_id;
+        this.result[this.key] = {
+            type: this.type,
+            value: res.file_id
+        };
         return res.url;
     }
 

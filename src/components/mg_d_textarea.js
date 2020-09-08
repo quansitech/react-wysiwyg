@@ -9,5 +9,10 @@ export default function MgDTextarea(props){
         props.change(e.target.value)
     }
 
-    return <Input.TextArea className={ 'qs-wg' } rows={4} value={ mgValue } onChange={ handleChange }/>
+    const handleClick = e => {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    return <Input.TextArea className={ 'qs-wg' } onClick={ handleClick } rows={4} value={ mgValue } onChange={ handleChange }/>
 }

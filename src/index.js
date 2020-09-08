@@ -35,6 +35,14 @@ class WYSIWYG{
     forbiddenClick = () => {
         var body = document.getElementsByTagName('body')[0];
         body.style.pointerEvents = 'none';
+        var a_list = document.getElementsByTagName('a');
+        for(var i=0; i < a_list.length; i++){
+            a_list[i].addEventListener('click', function(e){
+                e.preventDefault();
+                return false;
+            });
+            a_list[i].setAttribute('href', '#');
+        }
     }
 
     init = async () => {
@@ -47,8 +55,6 @@ class WYSIWYG{
             let typeComp = await typeFactory(comp, element, this.options, this.result);
             ReactDOM.render(<MgApp mgValue={ typeComp.getMgValue() } componentMg={ typeComp } />, element);
         }
-
-        
     }
 
     getResult = () => {
