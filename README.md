@@ -43,3 +43,13 @@ data-fontSize='24px' 单独设置图片icon的大小
 2. text
 
 3. textarea
+
+4. backgroundImage
+
+该类型配置和image一样
+
+5. refer
+
+data-link 设置跳转的地址
+
+该类型可以不设置data-key

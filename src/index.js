@@ -41,7 +41,6 @@ class WYSIWYG{
                 e.preventDefault();
                 return false;
             });
-            a_list[i].setAttribute('href', '#');
         }
     }
 

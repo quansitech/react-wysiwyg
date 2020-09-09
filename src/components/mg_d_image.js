@@ -13,6 +13,7 @@ export default function MgDImage(props){
     }
 
     const handleChange = info => {
+
         if (info.file.status === 'uploading') {
             setLoading(true);
             return;
@@ -40,11 +41,6 @@ export default function MgDImage(props){
         return isJpgOrPng && isLt2M;
     }
 
-    const handleClick = e => {
-      console.log('click');
-      e.stopPropagation();
-      e.preventDefault();
-    }
 
     const uploadButton = (
         <div>
@@ -62,9 +58,8 @@ export default function MgDImage(props){
           action={props.actionUrl}
           beforeUpload={beforeUpload}
           onChange={handleChange}
-          onClick={handleClick}
         >
           {mgValue ? <img src={mgValue} style={{ width: '100%' }} /> : uploadButton}
         </Upload>
-      );
+    );
 }
