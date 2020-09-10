@@ -26,6 +26,13 @@ export default class TypeText extends Type{
     render = async (mgValue, handleChange) => {
         let component = await this.loadComponent();
         const Comp = <component.default mgValue={ mgValue } change={ handleChange } ></component.default>;
-        return <MgPopover component={ Comp } >{ mgValue }<EditOutlined /></MgPopover>
+        return <MgPopover component={ Comp }>
+            <span style={{display: 'inline-block',position: 'relative'}}>
+                <span style={{position: 'absolute',width: '100%',height: '100%',backgroundColor: 'rgba(0,0,0,.3)',left: 0,top: 0}}>
+                </span>
+                { mgValue }
+                <EditOutlined className={'qs-wg'}/>
+            </span>
+        </MgPopover>
     }
 }

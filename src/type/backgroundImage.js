@@ -28,11 +28,6 @@ export default class TypeBackgroundImage extends TypeImage{
         return res.url;
     }
 
-    getTop = () => {
-        let top = this.ele.dataset.top;
-        return top ? top : '50%';
-    }
-
     render = async (mgValue, handleChange) => {
         let component = await this.loadComponent();
         const Comp = <component.default mgValue={ mgValue } change={ handleChange } actionUrl={ this.getActionUrl() } ></component.default>;

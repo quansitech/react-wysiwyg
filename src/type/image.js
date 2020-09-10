@@ -17,6 +17,11 @@ export default class TypeImage extends Type{
         return this.ele.src;
     }
 
+    getTop = () => {
+        let top = this.ele.dataset.top;
+        return top ? top : '50%';
+    }
+
     getActionUrl = () => {
         return this.ele.dataset.upload ? this.ele.dataset.upload : this.options.imageUploadUrl;
     }
@@ -43,7 +48,7 @@ export default class TypeImage extends Type{
                 <span style={{position: 'absolute',width: '100%',height: '100%',backgroundColor: 'rgba(0,0,0,.6)',left: 0,top: 0}}>
                 </span>
                 <img className={this.ele.className } style={ Util.cssTextToObject(this.ele.style.cssText) } src={mgValue} />
-                <UploadOutlined className={'qs-wg'} style={{ fontSize: this.getFontSize() }} />
+                <UploadOutlined className={'qs-wg'} style={{ fontSize: this.getFontSize(), top: this.getTop() }} />
             </span>
             </MgPopover>
         </ImageContainer>;

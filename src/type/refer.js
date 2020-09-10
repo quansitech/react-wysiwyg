@@ -16,6 +16,11 @@ export default class TypeRefer extends Type{
         return null;
     }
 
+    getTop = () => {
+        let top = this.ele.dataset.top;
+        return top ? top : '50%';
+    }
+
     handleChange = (text) => {
         return null;
     }
@@ -41,6 +46,6 @@ export default class TypeRefer extends Type{
         this.setEleStyle();
         let component = await this.loadComponent();
         const Comp = <component.default link={ this.link } ></component.default>;
-        return <MgPopover component={ Comp } ><LinkOutlined style={{ fontSize: this.getFontSize(), zIndex: "1000", color: 'white' }}/></MgPopover>
+        return <MgPopover component={ Comp } ><LinkOutlined style={{ position: 'absolute', fontSize: this.getFontSize(), zIndex: "1000", color: 'white', top: this.getTop() }}/></MgPopover>
     }
 }

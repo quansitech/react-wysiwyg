@@ -38,6 +38,8 @@ data-upload='url' 可对image类型元素单独设置图片上传url
 
 data-fontSize='24px' 单独设置图片icon的大小
 
+data-top="20%" 设置icon所在位置
+
 当存在全局设置时，单独设置有更高优先级
 
 2. text
@@ -51,5 +53,7 @@ data-fontSize='24px' 单独设置图片icon的大小
 5. refer
 
 data-link 设置跳转的地址
+
+data-top="20%" 设置icon所在位置
 
 该类型可以不设置data-key
