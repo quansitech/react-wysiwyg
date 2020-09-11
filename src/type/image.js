@@ -1,6 +1,6 @@
 import Type from './type';
 import React from 'react';
-import ImageContainer from '../components/mg_img_container';
+import MaskContainer from '../components/mg_mask_container';
 import MgPopover from '../components/mg_popover';
 import { UploadOutlined } from '@ant-design/icons';
 import Util from '../lib/util';
@@ -41,16 +41,17 @@ export default class TypeImage extends Type{
 
     render = async (mgValue, handleChange) => {
         let component = await this.loadComponent();
+        this.ele.src = mgValue;
         const Comp = <component.default mgValue={ mgValue } change={ handleChange } actionUrl={ this.getActionUrl() } ></component.default>;
-        return <ImageContainer img={this.ele}>
+        return <MaskContainer ele={this.ele}>
             <MgPopover component={ Comp } >
-            <span style={{display: 'inline-block',position: 'relative'}}>
+            {/* <span style={{display: 'inline-block',position: 'relative'}}>
                 <span style={{position: 'absolute',width: '100%',height: '100%',backgroundColor: 'rgba(0,0,0,.6)',left: 0,top: 0}}>
                 </span>
-                <img className={this.ele.className } style={ Util.cssTextToObject(this.ele.style.cssText) } src={mgValue} />
-                <UploadOutlined className={'qs-wg'} style={{ fontSize: this.getFontSize(), top: this.getTop() }} />
-            </span>
+                <img className={this.ele.className } style={ Util.cssTextToObject(this.ele.style.cssText) } src={mgValue} /> */}
+                <UploadOutlined className={'qs-wg'} style={{ position: 'absolute', fontSize: this.getFontSize(), zIndex: "1000", color: 'white', top: this.getTop() }} />
+            {/* </span> */}
             </MgPopover>
-        </ImageContainer>;
+        </MaskContainer>;
     }
 }
