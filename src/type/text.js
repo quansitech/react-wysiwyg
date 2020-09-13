@@ -2,7 +2,7 @@ import Type from './type';
 import React from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import MgPopover from '../components/mg_popover';
-import SideContainer from '../components/mg_side_container';
+import TextContainer from '../components/mg_text_container';
 
 export default class TypeText extends Type{
 
@@ -34,13 +34,12 @@ export default class TypeText extends Type{
 
 
     render = async (mgValue, handleChange) => {
-        this.ele.innerHTML = `<span>${mgValue}</span>`;
         let component = await this.loadComponent();
         const Comp = <component.default mgValue={ mgValue } change={ handleChange } ></component.default>;
-        return <SideContainer ele={this.ele.querySelector("span")}>
+        return <TextContainer ele={ this.ele } mgValue={ mgValue }>
             <MgPopover component={ Comp }>
                 <EditOutlined className="qs-wg" style={{ fontSize: this.getFontSize(), color: this.getColor(), opacity: 0.6, zIndex:"10000" }}/>
             </MgPopover>
-        </SideContainer>
+        </TextContainer>
     }
 }

@@ -22,6 +22,8 @@ export default function MaskContainer(props){
         el.style.justifyContent = 'center';
         el.style.zIndex = 9999;
         el.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+
+        setPos();
     }
 
     const setPos = () => {
@@ -31,9 +33,7 @@ export default function MaskContainer(props){
         el.style.width = rect.width + "px";
         el.style.height = rect.height + "px";
         el.style.top = rect.top - bodyRect.top + "px";
-        el.style.left = rect.left - bodyRect.left + "px";
-
-        console.log(el)
+        el.style.left = rect.left - bodyRect.left + "px"
 
     }
 

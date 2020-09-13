@@ -18,7 +18,7 @@ export default class TypeLink extends Type{
 
     getTop = () => {
         let top = this.ele.dataset.top;
-        return top ? top : '50%';
+        return top ? top : '';
     }
 
     handleChange = (text) => {
