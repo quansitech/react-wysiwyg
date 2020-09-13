@@ -2,6 +2,7 @@ import Type from './type';
 import React from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import MgPopover from '../components/mg_popover';
+import SideContainer from '../components/mg_side_container';
 
 export default class TypeText extends Type{
 
@@ -23,16 +24,23 @@ export default class TypeText extends Type{
         return text;
     }
 
+    getFontSize = () => {
+        return window.getComputedStyle(this.ele).getPropertyValue('font-size') || '30px';
+    }
+
+    getColor = () => {
+        return window.getComputedStyle(this.ele).getPropertyValue('color');
+    }
+
+
     render = async (mgValue, handleChange) => {
+        this.ele.innerHTML = `<span>${mgValue}</span>`;
         let component = await this.loadComponent();
         const Comp = <component.default mgValue={ mgValue } change={ handleChange } ></component.default>;
-        return <MgPopover component={ Comp }>
-            <span style={{display: 'inline-block',position: 'relative'}}>
-                <span style={{position: 'absolute',width: '100%',height: '100%',backgroundColor: 'rgba(0,0,0,.3)',left: 0,top: 0}}>
-                </span>
-                { mgValue }
-                <EditOutlined className={'qs-wg'}/>
-            </span>
-        </MgPopover>
+        return <SideContainer ele={this.ele.querySelector("span")}>
+            <MgPopover component={ Comp }>
+                <EditOutlined className="qs-wg" style={{ fontSize: this.getFontSize(), color: this.getColor(), opacity: 0.6, zIndex:"10000" }}/>
+            </MgPopover>
+        </SideContainer>
     }
 }

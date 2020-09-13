@@ -1,19 +1,19 @@
 import Type from './type';
 import React from 'react';
 import MgPopover from '../components/mg_popover';
-import { ArrowRightOutlined } from '@ant-design/icons';
+import { LinkOutlined } from '@ant-design/icons';
 
-export default class TypeRefer extends Type{
+export default class TypeLink extends Type{
 
     constructor(ele, options, result){
         super(ele, options, result);
 
-        this.type = 'refer';
-        this.link = this.ele.dataset.link;
+        this.type = 'link';
+        this.componentType = 'text';
     }
 
     getMgValue = () => {
-        return null;
+        return this.ele.dataset.value;
     }
 
     getTop = () => {
@@ -22,7 +22,11 @@ export default class TypeRefer extends Type{
     }
 
     handleChange = (text) => {
-        return null;
+        this.result[this.key] = {
+            type: this.type,
+            value: text
+        };
+        return text;
     }
 
     getFontSize = () => {
@@ -46,7 +50,7 @@ export default class TypeRefer extends Type{
     render = async (mgValue, handleChange) => {
         this.setEleStyle();
         let component = await this.loadComponent();
-        const Comp = <component.default link={ this.link } ></component.default>;
-        return <MgPopover component={ Comp } ><ArrowRightOutlined style={{ position: 'absolute', fontSize: this.getFontSize(), zIndex: "1000", color: 'white', top: this.getTop() }}/></MgPopover>
+        const Comp = <component.default mgValue={ mgValue } change={ handleChange } ></component.default>;
+        return <MgPopover component={ Comp } ><LinkOutlined style={{ position: 'absolute', fontSize: this.getFontSize(), zIndex: "1000", color: 'white', top: this.getTop() }}/></MgPopover>
     }
 }

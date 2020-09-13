@@ -3,7 +3,6 @@ import React from 'react';
 import MaskContainer from '../components/mg_mask_container';
 import MgPopover from '../components/mg_popover';
 import { UploadOutlined } from '@ant-design/icons';
-import Util from '../lib/util';
 
 export default class TypeImage extends Type{
 
