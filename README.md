@@ -57,3 +57,13 @@ data-link 设置跳转的地址
 data-top="20%" 设置icon所在位置
 
 该类型可以不设置data-key
+
+6. link
+
+自定义跳转地址
+
+data-value 跳转地址的值
+
+data-top 设置icon位置
+
+data-fontSize 设置icon大小
