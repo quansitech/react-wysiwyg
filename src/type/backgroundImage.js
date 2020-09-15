@@ -37,7 +37,7 @@ export default class TypeBackgroundImage extends TypeImage{
                     <span style={{display: 'inline-block',position: 'relative', width: '100%', height: '100%'}}>
                         <span style={{position: 'absolute',width: '100%',height: '100%',backgroundColor: 'rgba(0,0,0,.6)',left: 0,top: 0}}>
                         </span>
-                        <UploadOutlined className={'qs-wg'} style={{ fontSize: this.getFontSize(), top: this.getTop() }} />
+                        <UploadOutlined className={'qs-wg'} style={{ fontSize: this.getFontSize(), top: this.getTop(), left: this.getLeft() }} />
                     </span>
                     </MgPopover>
                 </DivContainer>

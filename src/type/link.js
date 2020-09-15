@@ -21,6 +21,11 @@ export default class TypeLink extends Type{
         return top ? top : '';
     }
 
+    getLeft = () => {
+        let left = this.ele.dataset.left;
+        return left ? left : '';
+    }
+
     handleChange = (text) => {
         this.result[this.key] = {
             type: this.type,
@@ -51,6 +56,6 @@ export default class TypeLink extends Type{
         this.setEleStyle();
         let component = await this.loadComponent();
         const Comp = <component.default mgValue={ mgValue } change={ handleChange } ></component.default>;
-        return <MgPopover component={ Comp } ><LinkOutlined style={{ position: 'absolute', fontSize: this.getFontSize(), zIndex: "1000", color: 'white', top: this.getTop() }}/></MgPopover>
+        return <MgPopover component={ Comp } ><LinkOutlined style={{ position: 'absolute', fontSize: this.getFontSize(), zIndex: "1000", color: 'white', top: this.getTop(), left: this.getLeft() }}/></MgPopover>
     }
 }
