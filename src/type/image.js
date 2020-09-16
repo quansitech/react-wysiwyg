@@ -31,7 +31,7 @@ export default class TypeImage extends Type{
     }
 
     getFontSize = () => {
-        let fontSize = this.ele.dataset.fontSize ? this.ele.dataset.fontSize : this.options.imageFontSize;
+        let fontSize = this.ele.dataset.fontsize ? this.ele.dataset.fontsize : this.options.imageFontSize;
         return fontSize ? fontSize : '30px';
     }
 
