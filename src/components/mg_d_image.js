@@ -51,6 +51,7 @@ export default function MgDImage(props){
 
 
     return (
+      <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         <Upload
           className={ 'qs-wg' }
           listType="picture-card"
@@ -61,5 +62,7 @@ export default function MgDImage(props){
         >
           {mgValue ? <img src={mgValue} style={{ width: '100%' }} /> : uploadButton}
         </Upload>
+        {props.tips ? <span>{props.tips}</span> : null}
+      </div>
     );
 }

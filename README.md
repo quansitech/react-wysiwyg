@@ -36,11 +36,13 @@ wg.getResult(); //获取当前所有编辑元素的值
 
 data-upload='url' 可对image类型元素单独设置图片上传url
 
-data-fontSize='24px' 单独设置图片icon的大小
+data-fontsize='24px' 单独设置图片icon的大小
 
 data-top="20%" 设置icon距离顶坐标的距离
 
 data-left="30%" 设置icon距离左坐标的距离
+
+data-tips="图片分辨率:800x600" 设置提示
 
 当存在全局设置时，单独设置有更高优先级
 
@@ -70,7 +72,7 @@ data-value 跳转地址的值
 
 data-top 设置icon位置
 
-data-fontSize 设置icon大小
+data-fontsize 设置icon大小
 
 data-top="20%" 设置icon距离顶坐标的距离
 
