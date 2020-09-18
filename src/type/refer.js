@@ -10,6 +10,10 @@ export default class TypeRefer extends Type{
 
         this.type = 'refer';
         this.link = this.ele.dataset.link;
+
+        window.addEventListener('resize', (e) => {
+            this.setEleStyle();
+        });
     }
 
     getMgValue = () => {
@@ -37,6 +41,8 @@ export default class TypeRefer extends Type{
 
     setEleStyle = () => {
         let rect = this.ele.parentElement.getBoundingClientRect();
+        let bodyRect = document.body.getBoundingClientRect();
+
         this.ele.style.position = "absolute";
         this.ele.style.width = rect.width + "px";
         this.ele.style.height = rect.height + "px";
@@ -46,6 +52,9 @@ export default class TypeRefer extends Type{
         this.ele.style.zIndex = 1000;
         this.ele.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
         this.ele.style.minHeight = '40px';
+
+        this.ele.style.top = rect.top - bodyRect.top + "px";
+        this.ele.style.left = rect.left - bodyRect.left + "px"
     }
 
     render = async (mgValue, handleChange) => {
