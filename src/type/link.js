@@ -10,6 +10,10 @@ export default class TypeLink extends Type{
 
         this.type = 'link';
         this.componentType = 'text';
+
+        window.addEventListener('resize', (e) => {
+            this.setEleStyle();
+        });
     }
 
     getMgValue = () => {
@@ -41,6 +45,8 @@ export default class TypeLink extends Type{
 
     setEleStyle = () => {
         let rect = this.ele.parentElement.getBoundingClientRect();
+        let bodyRect = document.body.getBoundingClientRect();
+
         this.ele.style.position = "absolute";
         this.ele.style.width = rect.width + "px";
         this.ele.style.height = rect.height + "px";
@@ -48,8 +54,13 @@ export default class TypeLink extends Type{
         this.ele.style.alignItems = 'center';
         this.ele.style.justifyContent = 'center';
         this.ele.style.zIndex = 1000;
-        this.ele.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+        this.ele.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
         this.ele.style.minHeight = '40px';
+
+        if(window.getComputedStyle(this.ele.parentElement).getPropertyValue('position') != 'relative'){
+            this.ele.style.top = rect.top - bodyRect.top + "px";
+            this.ele.style.left = rect.left - bodyRect.left + "px"
+        }
     }
 
     render = async (mgValue, handleChange) => {

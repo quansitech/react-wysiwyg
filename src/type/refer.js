@@ -50,11 +50,13 @@ export default class TypeRefer extends Type{
         this.ele.style.alignItems = 'center';
         this.ele.style.justifyContent = 'center';
         this.ele.style.zIndex = 1000;
-        this.ele.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+        this.ele.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
         this.ele.style.minHeight = '40px';
 
-        this.ele.style.top = rect.top - bodyRect.top + "px";
-        this.ele.style.left = rect.left - bodyRect.left + "px"
+        if(window.getComputedStyle(this.ele.parentElement).getPropertyValue('position') != 'relative'){
+            this.ele.style.top = rect.top - bodyRect.top + "px";
+            this.ele.style.left = rect.left - bodyRect.left + "px"
+        }
     }
 
     render = async (mgValue, handleChange) => {
