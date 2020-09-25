@@ -39,6 +39,10 @@ export default class TypeImage extends Type{
         return this.ele.dataset.tips ? this.ele.dataset.tips : '';
     }
 
+    getSize = () => {
+        return this.ele.dataset.size ? this.ele.dataset.size : 10;
+    }
+
     handleChange = (res) => {
         this.result[this.key] = {
             type: this.type,
@@ -50,7 +54,7 @@ export default class TypeImage extends Type{
     render = async (mgValue, handleChange) => {
         let component = await this.loadComponent();
         this.ele.src = mgValue;
-        const Comp = <component.default mgValue={ mgValue } change={ handleChange } actionUrl={ this.getActionUrl()} tips={ this.getTips() } ></component.default>;
+        const Comp = <component.default mgValue={ mgValue } change={ handleChange } actionUrl={ this.getActionUrl()} tips={ this.getTips() } size={ this.getSize() } ></component.default>;
         return <MaskContainer ele={this.ele}>
             <MgPopover component={ Comp } >
             {/* <span style={{display: 'inline-block',position: 'relative'}}>

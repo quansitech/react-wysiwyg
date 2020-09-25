@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import { Upload, message } from 'antd';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { Upload, message, Progress} from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import "antd/lib/progress/style/index.css";
 
 export default function MgDImage(props){
+    const [ progress, setProgress] = useState(0);
     const [ loading, setLoading ] = useState(false);
     const [ mgValue, setMgValue ] = useState(props.mgValue)
 
@@ -13,20 +15,24 @@ export default function MgDImage(props){
     }
 
     const handleChange = info => {
-
         if (info.file.status === 'uploading') {
             setLoading(true);
+            setProgress(info.file.percent.toFixed(2));
             return;
-          }
-          if (info.file.status === 'done') {
+        }
+        if (info.file.status === 'done') {
+          setLoading(false);
+          if(info.file.response.status){
             // Get this url from response in real world.
             getBase64(info.file.originFileObj, imageUrl => {
-              setLoading(false);
               setMgValue(imageUrl);
-
               props.change(info.file.response);
             });
           }
+          else{
+              message.error(info.file.response.info);
+          }
+        }
     }
 
     const beforeUpload = file => {
@@ -44,7 +50,7 @@ export default function MgDImage(props){
 
     const uploadButton = (
         <div>
-          {loading ? <LoadingOutlined /> : <PlusOutlined />}
+          {loading ? <Progress type="circle" percent={progress} /> : <PlusOutlined />}
           <div>Upload</div>
         </div>
       );
@@ -60,7 +66,7 @@ export default function MgDImage(props){
           beforeUpload={beforeUpload}
           onChange={handleChange}
         >
-          {mgValue ? <img src={mgValue} style={{ width: '100%' }} /> : uploadButton}
+          {mgValue && !loading ? <img src={mgValue} style={{ width: '100%' }} /> : uploadButton}
         </Upload>
         {props.tips ? <span>{props.tips}</span> : null}
       </div>

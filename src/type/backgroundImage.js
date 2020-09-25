@@ -30,7 +30,7 @@ export default class TypeBackgroundImage extends TypeImage{
 
     render = async (mgValue, handleChange) => {
         let component = await this.loadComponent();
-        const Comp = <component.default mgValue={ mgValue } change={ handleChange } actionUrl={ this.getActionUrl() } tips={ this.getTips()} ></component.default>;
+        const Comp = <component.default mgValue={ mgValue } change={ handleChange } actionUrl={ this.getActionUrl() } tips={ this.getTips()} size={ this.getSize() } ></component.default>;
         this.ele.style.backgroundImage = `url("${mgValue}")`;
         return <DivContainer div={ this.ele }>
                     <MgPopover component={ Comp } >
