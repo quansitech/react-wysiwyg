@@ -24,6 +24,7 @@ const options = {
     className: '', //启动所见即所得功能的元素class，默认render-mg，可改成自己需要的值
     imageUploadUrl: '', //image类型可通过该值全局设置的上传url
     imageFontSize: '', //image类型可通过该值全局设置icon图片大小
+    imageSize: '', //image类型可通过该值全局设置上传图片大小限制
 }
 
 const wg = new WYSIWYG(options);

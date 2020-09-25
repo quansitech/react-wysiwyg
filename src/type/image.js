@@ -40,7 +40,8 @@ export default class TypeImage extends Type{
     }
 
     getSize = () => {
-        return this.ele.dataset.size ? this.ele.dataset.size : 10;
+        let size = this.ele.dataset.size ? this.ele.dataset.size : this.options.imageSize;
+        return size ? size : 10;
     }
 
     handleChange = (res) => {

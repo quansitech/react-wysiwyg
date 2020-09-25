@@ -40,9 +40,9 @@ export default function MgDImage(props){
         if (!isJpgOrPng) {
             message.error('只能上传jpeg或者png格式的图片!');
         }
-        const isLt2M = file.size / 1024 / 1024 < 10;
+        const isLt2M = (file.size / 1024 / 1024) < props.size;
         if (!isLt2M) {
-            message.error('图片大小不能超过10MB');
+            message.error(`图片大小不能超过${props.size}MB`);
         }
         return isJpgOrPng && isLt2M;
     }
