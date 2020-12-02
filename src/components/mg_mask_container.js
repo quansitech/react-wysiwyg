@@ -27,7 +27,8 @@ export default function MaskContainer(props){
     }
 
     const setPos = () => {
-        let rect = props.ele.getBoundingClientRect();
+        let rect = props.target == 'parent' ? props.ele.parentElement.getBoundingClientRect() : props.ele.getBoundingClientRect();
+       
         let bodyRect = document.body.getBoundingClientRect();
 
         el.style.width = rect.width + "px";
